@@ -1,7 +1,7 @@
 // Create an event listener that will trigger slow scroll to first question when "start" button is clicked
 $('.start').click(function () {
     $('html,body').animate({
-        scrollTop: $(".questions").offset().top
+        scrollTop: $(".userInputCountry").offset().top
     },
         'slow');
 });
