@@ -1,3 +1,26 @@
+
+app = {};
+
+app.apiKey = 'qeQmGqx4AA9SDsXie418vjjZAJJuFirS';
+
+
+app.init = () => {
+    
+    $.ajax({
+        url: 'https://app.ticketmaster.com/discovery/v2/events.json?size=1&apikey=qeQmGqx4AA9SDsXie418vjjZAJJuFirS',
+        type: 'GET',
+        dataType: 'json',
+    }).then(function(result) {
+        console.log(result);
+    });
+
+}; //end app init
+
+$(document).ready(function () {
+    app.init();
+}); //end doc ready
+
+
 // Create an event listener that will trigger slow scroll to first question when "start" button is clicked
 $('.start').click(function () {
     $('html,body').animate({
@@ -8,17 +31,17 @@ $('.start').click(function () {
 
 // Create an event listener that will trigger slow scroll to next question when each answer is clicked
 for (let i = 1; i <= 3; i++) {
-    if (i <= 2) {
+    if (i == 1) {
         $(`.input${i}`).click(function () {
             $('html,body').animate({
-                scrollTop: $(`.question${i + 1}`).offset().top
+                scrollTop: $(`.userInputAttraction`).offset().top
             },
                 'slow');
         });
     } else {
         $(`.input${i}`).click(function () {
             $('html,body').animate({
-                scrollTop: $(`.submit`).offset().top
+                scrollTop: $(`.results`).offset().top
             },
                 'slow');
         });
@@ -34,9 +57,8 @@ $('.submitBtn').on('click', function (event) {
     // (2) Obtain "checked" radio option from each question
     // Recall: radio buttons are grouped by name - select input by name
 
-    const userSelectedTemp = $('input[name=question1]:checked').val();
-    const userSelectedEnvironment = $('input[name=question2]:checked').val();
-    const userSelectedCost = $('input[name=question3]:checked').val();
+    const userSelectedCountry = $('input[name=userInputCountry]:checked').val();
+    const userSelectedAttractions = $('input[name=userInputAttraction]:checked').val();
 
     // Filter our array based on the user's choice:
     const userChoice = countries[userSelectedTemp];
