@@ -1,0 +1,20 @@
+Project 4 - Sarah Vieira & Ken Taylor
+
+Pseudocode:
+On page load: display h1 with app title
+H1 with app title
+P tag with short summary of app function
+Select including event type options (Canada, USA, etc. for stretch goals)
+Once first input has been checked, prompt user input (Select tag) for event category
+Once second input has been checked, prompt user input for price and date categories (Stretch goals)
+Store input results in a variable
+Make AJAX request with user input
+Once all inputs have been submitted, display data on screen →  user will be sent to ‘results’ page which will display list of events in country specified
+Access event object and append filtered information to DOM
+Display image, title and event info (dates, cost, etc.)
+Include “Buy Tickets” link that will allow user to purchase tickets for event on external site
+Button on results page will allow user to restart app → add hard refresh event listener
+
+
+
+
