@@ -6,6 +6,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project 4</title>
+
+    <!-- <link rel="stylesheet" href="./styles/style.css"> -->
 </head>
 
 <body>
@@ -22,30 +24,30 @@
         <form class="userInputForm wrapper">
             <!-- Start of first user input screen (choose country) -->
             <section class="userInputCountry">
-                <input type="radio" name="userInputCountry" id="inputCanada" class="input1">
+                <input type="radio" name="userInputCountry" id="inputCanada" class="input1" value="canada">
                 <label for="inputCanada">canada</label>
 
-                <input type="radio" name="userInputCountry" id="inputUSA" class="input1">
+                <input type="radio" name="userInputCountry" id="inputUSA" class="input1" value="usa">
                 <label for="inputUSA">usa</label>
 
-                <input type="radio" name="userInputCountry" id="inputMexico" class="input1">
+                <input type="radio" name="userInputCountry" id="inputMexico" class="input1" value="mexico">
                 <label for="inputMexico">mexico</label>
             </section>
     
-            <!-- Start of second user input screen (choose attraction -->
-            <section class="userInputAttraction">
-                <input type="radio" name="userInputAttraction" id="inputConcerts" class="input2">
+            <!-- Start of second user input screen (choose attraction) -->
+            <section class="userInputSegment">
+                <input type="radio" name="userInputSegment" id="inputConcerts" class="input2" value="music">
                 <label for="inputConcerts">concerts</label>
 
-                <input type="radio" name="userInputAttraction" id="inputSports" class="input2">
+                <input type="radio" name="userInputSegment" id="inputSports" class="input2" value="sports">
                 <label for="inputSports">sports</label>
 
-                <input type="radio" name="userInputAttraction" id="inputArts" class="input2">
+                <input type="radio" name="userInputSegment" id="inputArts" class="input2" value="arts & theatre">
                 <label for="inputArts">arts & theatre</label>
-            </section>
 
-            <section>
-                <button type="submit" class="submitBtn">submit</button>
+                <div>
+                    <button type="submit" class="submitBtn">submit</button>
+                </div>
             </section>
         </form>
 

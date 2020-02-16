@@ -1,100 +1,146 @@
+$(document).ready(function () {
 
-app = {};
+    const apiKey = 'qeQmGqx4AA9SDsXie418vjjZAJJuFirS';
 
-app.apiKey = 'qeQmGqx4AA9SDsXie418vjjZAJJuFirS';
+    // app.categoryFunction = function(result){
+    //     for(let i = 0; i < 10; i++){
+    //         app.category = result._embedded.event[i].classifications[0].segment;
+    //         console.log(app.category);
+    //         console.log("hello")
+    //     }
+    // }
+
+    // app.init = () => {
+    //     console.log("App has started!");
+    //     app.getInfo();
+    // }; //end app init
+
+    let category;
+    let country;
+
+    let emptyCategoryArray = [];
+    let emptyCountryArray = [];
+
+    let userSelectedCountry;
+    let userSelectedSegment;
 
 
-app.init = () => {
-    
-    $.ajax({
-        url: 'https://app.ticketmaster.com/discovery/v2/events.json?size=1&apikey=qeQmGqx4AA9SDsXie418vjjZAJJuFirS',
-        type: 'GET',
-        dataType: 'json',
-    }).then(function(result) {
-        console.log(result);
+    // This function will grab info from oue API based on user input
+    getInfo = function (userCountry, userSegment) {
+        $.ajax({
+            url: `https://app.ticketmaster.com/discovery/v2/events.json?size=10&apikey=${apiKey}`,
+            type: 'GET',
+            dataType: 'json',
+            data: {
+                segmentName: `${userSegment}`,
+                countryCode: `${userCountry}`
+            },
+            success: function (result) {
+                console.log("Success! We have obtained information using our user's input! Our user selected " + userCountry + " as their prefered country. Our user selected " + userSegment + " as their prefered attraction type.")
+
+                console.log(result);
+
+                displayInfo(result);
+            }
+        });
+    }
+
+    displayInfo = function(data){
+        const eventsArray = data._embedded.events;
+        console.log(eventsArray);
+
+        eventsArray.forEach(function(item){
+            let title = item.name;
+            let image = item._embedded.attractions[0].images[1];
+            let date = item.dates.start.localDate;
+            let city = item._embedded.venues[0].city.name;
+            let buyTickets = item.url;
+
+            const htmlToAppend = `
+            <img src ="${image.url}">
+            <h3>${title}</h3>
+            <p>${city}</p>
+            <p>${date}</p>
+            <a href="${buyTickets}">Buy Tickets</a>
+            `
+
+            $('.results').append(htmlToAppend);
+        })
+    }
+
+    // Create an event listener that will trigger slow scroll to first question when "start" button is clicked
+    $('.start').click(function () {
+        $('html,body').animate({
+            scrollTop: $(".userInputCountry").offset().top
+        },
+            'slow');
     });
 
-}; //end app init
+    // Submit form:
+    $('.submitBtn').on('click', function (event) {
+        event.preventDefault();
 
-$(document).ready(function () {
-    app.init();
+        // Goal: obtain user input
+        // (1) Store user's answer in a variable
+        // (2) Obtain "checked" radio option from each question
+        // Recall: radio buttons are grouped by name - select input by name
+
+        console.log('Submit button has been clicked!')
+
+        userSelectedCountry = $('input[name=userInputCountry]:checked').val();
+        userSelectedSegment = $('input[name=userInputSegment]:checked').val();
+        let countryCode;
+
+        console.log(userSelectedCountry);
+        console.log(userSelectedSegment);
+
+        if(userSelectedCountry === "canada"){
+            countryCode = "CA";
+        }
+        else if(userSelectedCountry === "usa"){
+            countryCode = "US";
+        }
+        else{
+            countryCode = "MX";
+        }
+
+        console.log(countryCode);
+
+        // getCountryInfo(countryCode);
+        // getSegmentInfo(userSelectedSegment);
+        getInfo(countryCode, userSelectedSegment);
+
+    });
+
 }); //end doc ready
 
 
-// Create an event listener that will trigger slow scroll to first question when "start" button is clicked
-$('.start').click(function () {
-    $('html,body').animate({
-        scrollTop: $(".userInputCountry").offset().top
-    },
-        'slow');
-});
+
+
+
+
+
+
+
+
+
+
 
 // Create an event listener that will trigger slow scroll to next question when each answer is clicked
-for (let i = 1; i <= 3; i++) {
-    if (i == 1) {
-        $(`.input${i}`).click(function () {
-            $('html,body').animate({
-                scrollTop: $(`.userInputAttraction`).offset().top
-            },
-                'slow');
-        });
-    } else {
-        $(`.input${i}`).click(function () {
-            $('html,body').animate({
-                scrollTop: $(`.results`).offset().top
-            },
-                'slow');
-        });
-    }
-}
-
-// Submit form:
-$('.submitBtn').on('click', function (event) {
-    event.preventDefault();
-
-    // Goal: obtain user input
-    // (1) Store user's answer in a variable
-    // (2) Obtain "checked" radio option from each question
-    // Recall: radio buttons are grouped by name - select input by name
-
-    const userSelectedCountry = $('input[name=userInputCountry]:checked').val();
-    const userSelectedAttractions = $('input[name=userInputAttraction]:checked').val();
-
-    // Filter our array based on the user's choice:
-    const userChoice = countries[userSelectedTemp];
-    // The array userChoice contains all cities in cold/hot arrays depending on user's selection
-
-    // Select appropriate suggestion from our 'countries' object
-    for (let index = 0; index < userChoice.length; index++) {
-        // Compare user's selected temp countries (hot/cold, userChoice) with the 'environment' AND 'cost' properties in each corresponding object 
-        if (userChoice[index].environment === userSelectedEnvironment
-            &&
-            userChoice[index].cost === userSelectedCost) {
-            resultOptions.push(userChoice[index].country);
-            // This will add the name of the country to our resultsObject array if its environment property AND cost property corresponds with the user input
-
-            resultPhotos.push(userChoice[index].url);
-            // This will add the photo of the country to our resultsPhotos array if its environment property AND cost property corresponds with the user input
-        }
-        // Result: we have two newly formed arrays (resultOptions and resultPhotos) that contain all of the countries (and photos of) in our original array that pertain to the user's preferences
-    }
-
-    // Make our '.results' section in our HTML visible on our page
-    $('.results').css('display', 'flex')
-
-    // Trigger page to scroll down to '.results' section when submit button is clicked
-    $('html,body').animate({
-        scrollTop: $(".results").offset().top
-    },
-        'slow');
-
-    // Print to the results section: target our HTML '.results' div        
-    // Use the return value from our getRandom() to print
-    const randomIndex = getRandom(resultOptions.length);
-    const source = `url(${resultPhotos[randomIndex]})`;
-
-    $('.randomCountry').html(`${resultOptions[randomIndex]}`);
-    $('.results').css({
-        'backgroundImage': source
-    })
-});
+// for (let i = 1; i <= 3; i++) {
+//     if (i == 1) {
+//         $(`.input${i}`).click(function () {
+//             $('html,body').animate({
+//                 scrollTop: $(`.userInputAttraction`).offset().top
+//             },
+//                 'slow');
+//         });
+//     } else {
+//         $(`.input${i}`).click(function () {
+//             $('html,body').animate({
+//                 scrollTop: $(`.results`).offset().top
+//             },
+//                 'slow');
+//         });
+//     }
+// }
