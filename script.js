@@ -1,24 +1,35 @@
 
-app = {};
+app = {
+};
 
 app.apiKey = 'qeQmGqx4AA9SDsXie418vjjZAJJuFirS';
 
 
+
+
 app.init = () => {
+    app.getInfo();
+    
+}; //end app init
+
+
+app.getInfo = function() {
     
     $.ajax({
-        url: 'https://app.ticketmaster.com/discovery/v2/events.json?size=1&apikey=qeQmGqx4AA9SDsXie418vjjZAJJuFirS',
+        url: 'https://app.ticketmaster.com/discovery/v2/events.json?size=10&apikey=qeQmGqx4AA9SDsXie418vjjZAJJuFirS',
         type: 'GET',
         dataType: 'json',
     }).then(function(result) {
-        console.log(result);
+        console.log(result._embedded.events);
     });
 
-}; //end app init
+}    
 
 $(document).ready(function () {
     app.init();
 }); //end doc ready
+
+
 
 
 // Create an event listener that will trigger slow scroll to first question when "start" button is clicked
