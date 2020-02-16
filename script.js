@@ -45,11 +45,11 @@ $(document).ready(function () {
         });
     }
 
-    displayInfo = function(data){
+    displayInfo = function (data) {
         const eventsArray = data._embedded.events;
         console.log(eventsArray);
 
-        eventsArray.forEach(function(item){
+        eventsArray.forEach(function (item) {
             let title = item.name;
             let image = item._embedded.attractions[0].images[1];
             let date = item.dates.start.localDate;
@@ -94,13 +94,13 @@ $(document).ready(function () {
         console.log(userSelectedCountry);
         console.log(userSelectedSegment);
 
-        if(userSelectedCountry === "canada"){
+        if (userSelectedCountry === "canada") {
             countryCode = "CA";
         }
-        else if(userSelectedCountry === "usa"){
+        else if (userSelectedCountry === "usa") {
             countryCode = "US";
         }
-        else{
+        else {
             countryCode = "MX";
         }
 
