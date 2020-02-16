@@ -28,7 +28,7 @@ $(document).ready(function () {
     // This function will grab info from oue API based on user input
     getInfo = function (userCountry, userSegment) {
         $.ajax({
-            url: `https://app.ticketmaster.com/discovery/v2/events.json?size=10&apikey=${apiKey}`,
+            url: `https://app.ticketmaster.com/discovery/v2/events.json?size=20&apikey=${apiKey}`,
             type: 'GET',
             dataType: 'json',
             data: {
@@ -46,18 +46,26 @@ $(document).ready(function () {
     }
 
     displayInfo = function (data) {
+        $('.results').empty();
         const eventsArray = data._embedded.events;
         console.log(eventsArray);
 
         eventsArray.forEach(function (item) {
             let title = item.name;
-            let image = item._embedded.attractions[0].images[1];
+            let imageArray = item._embedded.attractions[0].images;
             let date = item.dates.start.localDate;
             let city = item._embedded.venues[0].city.name;
             let buyTickets = item.url;
+            let image;
+
+            imageArray.forEach(function(imageObject) {
+                if (imageObject.width > 500 && imageObject.width < 1000) {
+                    return image = imageObject.url;
+                }
+            });
 
             const htmlToAppend = `
-            <img src ="${image.url}">
+            <img src ="${image}">
             <h3>${title}</h3>
             <p>${city}</p>
             <p>${date}</p>
