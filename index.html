@@ -2,6 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,46 +15,52 @@
     <header>
         <div class="wrapper">
             <h1>Travel Event App</h1>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit dignissimos assumenda inventore quam doloremque aut sit animi, itaque cum officia? Eligendi nulla ea nihil quod enim eum quae! Tempora, illo!</p>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit dignissimos assumenda inventore quam
+                doloremque aut sit animi, itaque cum officia? Eligendi nulla ea nihil quod enim eum quae! Tempora, illo!
+            </p>
             <button class="start">start</button>
         </div>
     </header>
 
     <main>
-        <!-- Beginning of form - user input screens -->
-        <form class="userInputForm wrapper">
-            <!-- Start of first user input screen (choose country) -->
-            <section class="userInputCountry">
-                <input type="radio" name="userInputCountry" id="inputCanada" class="input1" value="canada">
-                <label for="inputCanada">canada</label>
 
-                <input type="radio" name="userInputCountry" id="inputUSA" class="input1" value="usa">
-                <label for="inputUSA">usa</label>
+        <div class="inputContainer">
+            <!-- Beginning of form - user input screens -->
+            <form class="userInputForm wrapper">
+                <!-- Start of first user input screen (choose country) -->
+                <section class="userInputCountry">
+                    <input type="radio" name="userInputCountry" id="inputCanada" class="input1" value="canada">
+                    <label for="inputCanada">canada</label>
 
-                <input type="radio" name="userInputCountry" id="inputMexico" class="input1" value="mexico">
-                <label for="inputMexico">mexico</label>
-            </section>
-    
-            <!-- Start of second user input screen (choose attraction) -->
-            <section class="userInputSegment">
-                <input type="radio" name="userInputSegment" id="inputConcerts" class="input2" value="music">
-                <label for="inputConcerts">concerts</label>
+                    <input type="radio" name="userInputCountry" id="inputUSA" class="input1" value="usa">
+                    <label for="inputUSA">usa</label>
 
-                <input type="radio" name="userInputSegment" id="inputSports" class="input2" value="sports">
-                <label for="inputSports">sports</label>
+                    <input type="radio" name="userInputCountry" id="inputMexico" class="input1" value="mexico">
+                    <label for="inputMexico">mexico</label>
+                </section>
 
-                <input type="radio" name="userInputSegment" id="inputArts" class="input2" value="arts & theatre">
-                <label for="inputArts">arts & theatre</label>
+                <!-- Start of second user input screen (choose attraction) -->
+                <section class="userInputSegment">
+                    <input type="radio" name="userInputSegment" id="inputConcerts" class="input2" value="music">
+                    <label for="inputConcerts" class="inputConcerts">concerts</label>
 
-                <div>
+                    <input type="radio" name="userInputSegment" id="inputSports" class="input2" value="sports">
+                    <label for="inputSports" class="inputSports">sports</label>
+
+                    <input type="radio" name="userInputSegment" id="inputArts" class="input2" value="arts & theatre">
+                    <label for="inputArts" class="inputArts">arts & theatre</label>
+                </section>
+
+                <div class="submitSection">
                     <button type="submit" class="submitBtn">submit</button>
                 </div>
-            </section>
-        </form>
+            </form>
+
+        </div>
 
         <!-- Start of results section -->
         <section class="results">
-            
+
             <div class="wrapper">
                 <!-- Add from JS based on AJAX request -->
 
@@ -62,7 +69,7 @@
                     <h2></h2>
                     <p></p>
                 </div> -->
-                
+
                 <!-- List of events from API -->
                 <!-- <div class="resultsFlexContainer">
                     <div><img src="" alt=""></div>
@@ -86,8 +93,10 @@
 
     </footer>
 
-    <script src='https://code.jquery.com/jquery-3.2.1.min.js' integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4='crossorigin='anonymous'></script>
+    <script src='https://code.jquery.com/jquery-3.2.1.min.js'
+        integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=' crossorigin='anonymous'></script>
     <script src="./script.js"></script>
 
 </body>
+
 </html>

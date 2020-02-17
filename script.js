@@ -58,18 +58,20 @@ $(document).ready(function () {
             let buyTickets = item.url;
             let image;
 
-            imageArray.forEach(function(imageObject) {
+            imageArray.forEach(function (imageObject) {
                 if (imageObject.width > 500 && imageObject.width < 1000) {
                     return image = imageObject.url;
                 }
             });
 
             const htmlToAppend = `
+            <div class="eventContainer">
             <img src ="${image}">
             <h3>${title}</h3>
             <p>${city}</p>
             <p>${date}</p>
             <a href="${buyTickets}">Buy Tickets</a>
+            </div>
             `
 
             $('.results').append(htmlToAppend);
@@ -119,6 +121,16 @@ $(document).ready(function () {
         getInfo(countryCode, userSelectedSegment);
 
     });
+
+    $('.inputConcerts').on('click', function () {
+        $('.userInputSegment').css('background-image', 'url(./assets/concerts.jpg)');
+    })
+    $('.inputSports').on('click', function () {
+        $('.userInputSegment').css('background-image', 'url(./assets/sports.jpg)');
+    })
+    $('.inputArts').on('click', function () {
+        $('.userInputSegment').css('background-image', 'url(./assets/theatre.jpg)');
+    })
 
 }); //end doc ready
 

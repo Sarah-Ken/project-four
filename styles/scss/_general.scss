@@ -14,6 +14,8 @@ img{
 body,
 html{
     width: 100vw;
+    line-height: 1.6;
+    letter-spacing: 1.5px;
 }
 
 .wrapper{
@@ -24,7 +26,41 @@ html{
 
 header,
 .userInputCountry,
-.userInputAttraction,
-.results{
+.userInputSegment,
+.submitSection{
     height: 100vh;
+    width: 100vw;
+}
+
+header,
+.inputContainer{
+    background: rgba(0,0,0,0.85);
+    color: white;
+}
+
+header,
+.userInputForm,
+.userInputCountry,
+.userInputSegment,
+.submitSection{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.userInputCountry,
+.userInputSegment{
+    flex-direction: row;
+        input{
+            opacity: 0;
+        }
+}
+
+label{
+    background: rgba(0,0,0,0.75);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 2%;
 }
