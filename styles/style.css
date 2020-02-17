@@ -266,6 +266,42 @@ label {
   background-repeat: none;
 }
 
+.submitSection {
+  margin-bottom: 10%;
+}
+
+.results {
+  margin-top: 5%;
+}
+
+.eventGrid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 50% 50%;
+      grid-template-columns: 50% 50%;
+}
+
+.eventContainer {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 30% 50% 20%;
+      grid-template-columns: 30% 50% 20%;
+  border: 1px solid lightgray;
+  padding: 15px;
+}
+
+.eventContainer .eventInfoContainer {
+  padding-left: 10px;
+}
+
+.eventContainer .eventInfoContainer h3 {
+  line-height: 1;
+}
+
+.eventContainer .imageContainer img {
+  min-width: 150px;
+}
+
 button,
 label {
   cursor: pointer;

@@ -35,6 +35,7 @@ $(document).ready(function () {
                 segmentName: `${userSegment}`,
                 countryCode: `${userCountry}`
             },
+            //FIXME: Ask if we can use success, or how to convert to .then 
             success: function (result) {
                 console.log("Success! We have obtained information using our user's input! Our user selected " + userCountry + " as their prefered country. Our user selected " + userSegment + " as their prefered attraction type.")
 
@@ -49,6 +50,14 @@ $(document).ready(function () {
         $('.results').empty();
         const eventsArray = data._embedded.events;
         console.log(eventsArray);
+
+        let headerToAppend = `
+        <div class="resultsHeader">
+            <h2>Your results:</h2>
+            <p>You chose <span class="segmentSpan">${userSelectedSegment}</span> in <span class="countrySpan">${userSelectedCountry}</span></p>
+        </div>
+        `
+        $('.results').append(headerToAppend);
 
         eventsArray.forEach(function (item) {
             let title = item.name;
@@ -65,12 +74,21 @@ $(document).ready(function () {
             });
 
             const htmlToAppend = `
-            <div class="eventContainer">
-            <img src ="${image}">
-            <h3>${title}</h3>
-            <p>${city}</p>
-            <p>${date}</p>
-            <a href="${buyTickets}">Buy Tickets</a>
+            
+            <div class="eventGrid">
+                <div class="eventContainer">
+                    <div class="imageContainer">
+                        <img src ="${image}" alt="${title}">
+                    </div>
+                    <div class="eventInfoContainer">
+                        <h3>${title}</h3>
+                        <p>${city}</p>
+                        <p>${date}</p>
+                    </div>
+                    <div class="buyTickets">
+                        <a href="${buyTickets}">Buy Tickets</a>
+                    </div>
+                </div>
             </div>
             `
 
@@ -133,6 +151,8 @@ $(document).ready(function () {
     })
 
 }); //end doc ready
+
+
 
 
 

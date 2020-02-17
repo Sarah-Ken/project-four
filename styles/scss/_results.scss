@@ -1,0 +1,36 @@
+.results {
+    margin-top: 5%;
+}
+
+.eventGrid {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+
+
+.eventContainer {
+    display: grid;
+    grid-template-columns: 30% 50% 20%;
+    border: 1px solid lightgray;
+    padding: 15px;
+
+    .eventInfoContainer {
+        padding-left: 10px;
+
+        h3 {
+            line-height: 1;
+        }
+    }
+
+    .imageContainer {
+        
+        img {
+            min-width: 150px;
+        }
+    }
+}
+
+
+
+
