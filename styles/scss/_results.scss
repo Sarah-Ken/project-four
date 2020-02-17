@@ -1,11 +1,13 @@
 .results {
     margin-top: 5%;
+
+    .eventGrid {
+        display: grid;
+        grid-template-columns: 50% 50%;
+    }
 }
 
-.eventGrid {
-    display: grid;
-    grid-template-columns: 50% 50%;
-}
+
 
 
 

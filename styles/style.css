@@ -274,7 +274,7 @@ label {
   margin-top: 5%;
 }
 
-.eventGrid {
+.results .eventGrid {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 50% 50%;

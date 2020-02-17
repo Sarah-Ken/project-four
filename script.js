@@ -47,17 +47,19 @@ $(document).ready(function () {
     }
 
     displayInfo = function (data) {
-        $('.results').empty();
+        $('.eventGrid').empty();
         const eventsArray = data._embedded.events;
         console.log(eventsArray);
 
         let headerToAppend = `
-        <div class="resultsHeader">
-            <h2>Your results:</h2>
-            <p>You chose <span class="segmentSpan">${userSelectedSegment}</span> in <span class="countrySpan">${userSelectedCountry}</span></p>
-        </div>
+        
+           
+                <h2>Your results:</h2>
+                <p>You chose <span class="segmentSpan">${userSelectedSegment}</span> in <span class="countrySpan">${userSelectedCountry}</span></p>
+           
+        
         `
-        $('.results').append(headerToAppend);
+        $('.resultsHeader').append(headerToAppend);
 
         eventsArray.forEach(function (item) {
             let title = item.name;
@@ -74,8 +76,7 @@ $(document).ready(function () {
             });
 
             const htmlToAppend = `
-            
-            <div class="eventGrid">
+           
                 <div class="eventContainer">
                     <div class="imageContainer">
                         <img src ="${image}" alt="${title}">
@@ -89,10 +90,9 @@ $(document).ready(function () {
                         <a href="${buyTickets}">Buy Tickets</a>
                     </div>
                 </div>
-            </div>
             `
 
-            $('.results').append(htmlToAppend);
+            $('.eventGrid').append(htmlToAppend);
         })
     }
 
