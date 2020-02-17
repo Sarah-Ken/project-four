@@ -207,9 +207,13 @@ html {
 
 header,
 .userInputCountry,
-.userInputSegment,
-.submitSection {
+.userInputSegment {
   height: 100vh;
+  width: 100vw;
+}
+
+.userInputSegmentFlex,
+.submitSection {
   width: 100vw;
 }
 
@@ -273,7 +277,7 @@ button {
   margin-top: 3%;
 }
 
-section.userInputSegment {
+.userInputSegment {
   background-size: cover;
   background-position: center;
   background-repeat: none;
@@ -281,10 +285,6 @@ section.userInputSegment {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-}
-
-.submitSection {
-  margin-bottom: 10%;
 }
 
 .results .resultsHeader h2 {

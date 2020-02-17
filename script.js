@@ -111,16 +111,13 @@ $(document).ready(function () {
             'slow');
     });
 
-    $('.userInputSegment input').click(function () {
+    // Submit form:
+    $('.submitBtn').on('click', function (event) {
+        event.preventDefault();
         $('html,body').animate({
             scrollTop: $(".results").offset().top
         },
             'slow');
-    });
-
-    // Submit form:
-    $('.submitBtn').on('click', function (event) {
-        event.preventDefault();
 
         // Goal: obtain user input
         // (1) Store user's answer in a variable
@@ -155,13 +152,13 @@ $(document).ready(function () {
     });
 
     $('.inputConcerts').on('click', function () {
-        $('section.userInputSegment').css('background-image', 'url(./assets/concerts.jpg)');
+        $('.userInputSegment').css('background-image', 'url(./assets/concerts.jpg)');
     })
     $('.inputSports').on('click', function () {
-        $('section.userInputSegment').css('background-image', 'url(./assets/sports.jpg)');
+        $('.userInputSegment').css('background-image', 'url(./assets/sports.jpg)');
     })
     $('.inputArts').on('click', function () {
-        $('section.userInputSegment').css('background-image', 'url(./assets/theatre.jpg)');
+        $('.userInputSegment').css('background-image', 'url(./assets/theatre.jpg)');
     })
 
 }); //end doc ready
