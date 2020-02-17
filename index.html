@@ -18,7 +18,13 @@
             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit dignissimos assumenda inventore quam
                 doloremque aut sit animi, itaque cum officia? Eligendi nulla ea nihil quod enim eum quae! Tempora, illo!
             </p>
-            <button class="start">start</button>
+            <button class="start">start
+
+                <!-- <svg>
+                    <polyline class="o1" points="0 0, 150 0, 150 55, 0 55, 0 0"></polyline>
+                    <polyline class="o2" points="0 0, 150 0, 150 55, 0 55, 0 0"></polyline>
+                </svg> -->
+            </button>
         </div>
     </header>
 
@@ -41,19 +47,22 @@
 
                 <!-- Start of second user input screen (choose attraction) -->
                 <section class="userInputSegment">
-                    <input type="radio" name="userInputSegment" id="inputConcerts" class="input2" value="music">
-                    <label for="inputConcerts" class="inputConcerts">concerts</label>
+                    <div class="userInputSegment">
+                        <input type="radio" name="userInputSegment" id="inputConcerts" class="input2" value="music">
+                        <label for="inputConcerts" class="inputConcerts">concerts</label>
+    
+                        <input type="radio" name="userInputSegment" id="inputSports" class="input2" value="sports">
+                        <label for="inputSports" class="inputSports">sports</label>
+    
+                        <input type="radio" name="userInputSegment" id="inputArts" class="input2" value="arts & theatre">
+                        <label for="inputArts" class="inputArts">arts & theatre</label>
+                    </div>
 
-                    <input type="radio" name="userInputSegment" id="inputSports" class="input2" value="sports">
-                    <label for="inputSports" class="inputSports">sports</label>
-
-                    <input type="radio" name="userInputSegment" id="inputArts" class="input2" value="arts & theatre">
-                    <label for="inputArts" class="inputArts">arts & theatre</label>
+                    <div class="submitSection">
+                        <button type="submit" class="submitBtn">submit</button>
+                    </div>
                 </section>
 
-                <div class="submitSection">
-                    <button type="submit" class="submitBtn">submit</button>
-                </div>
             </form>
 
         </div>

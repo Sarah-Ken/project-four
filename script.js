@@ -104,6 +104,20 @@ $(document).ready(function () {
             'slow');
     });
 
+    $('.userInputCountry input').click(function () {
+        $('html,body').animate({
+            scrollTop: $(".userInputSegment").offset().top
+        },
+            'slow');
+    });
+
+    $('.userInputSegment input').click(function () {
+        $('html,body').animate({
+            scrollTop: $(".results").offset().top
+        },
+            'slow');
+    });
+
     // Submit form:
     $('.submitBtn').on('click', function (event) {
         event.preventDefault();
@@ -141,13 +155,13 @@ $(document).ready(function () {
     });
 
     $('.inputConcerts').on('click', function () {
-        $('.userInputSegment').css('background-image', 'url(./assets/concerts.jpg)');
+        $('section.userInputSegment').css('background-image', 'url(./assets/concerts.jpg)');
     })
     $('.inputSports').on('click', function () {
-        $('.userInputSegment').css('background-image', 'url(./assets/sports.jpg)');
+        $('section.userInputSegment').css('background-image', 'url(./assets/sports.jpg)');
     })
     $('.inputArts').on('click', function () {
-        $('.userInputSegment').css('background-image', 'url(./assets/theatre.jpg)');
+        $('section.userInputSegment').css('background-image', 'url(./assets/theatre.jpg)');
     })
 
 }); //end doc ready

@@ -1,6 +1,10 @@
 .results {
-    margin-top: 5%;
+    .resultsHeader{
+        h2{
+            margin-top: 5%;
 
+        }
+    }
     .eventGrid {
         display: grid;
         grid-template-columns: 50% 50%;
