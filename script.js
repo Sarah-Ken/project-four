@@ -28,12 +28,13 @@ $(document).ready(function () {
     // This function will grab info from oue API based on user input
     getInfo = function (userCountry, userSegment) {
         $.ajax({
-            url: `https://app.ticketmaster.com/discovery/v2/events.json?size=20&apikey=${apiKey}`,
+            url: `https://app.ticketmaster.com/discovery/v2/events.json?&apikey=${apiKey}`,
             type: 'GET',
             dataType: 'json',
             data: {
                 segmentName: `${userSegment}`,
-                countryCode: `${userCountry}`
+                countryCode: `${userCountry}`,
+                size: 20,
             },
             //FIXME: Ask if we can use success, or how to convert to .then 
             success: function (result) {
@@ -114,10 +115,7 @@ $(document).ready(function () {
     // Submit form:
     $('.submitBtn').on('click', function (event) {
         event.preventDefault();
-        $('html,body').animate({
-            scrollTop: $(".results").offset().top
-        },
-            'slow');
+        
 
         // Goal: obtain user input
         // (1) Store user's answer in a variable
@@ -148,6 +146,11 @@ $(document).ready(function () {
         // getCountryInfo(countryCode);
         // getSegmentInfo(userSelectedSegment);
         getInfo(countryCode, userSelectedSegment);
+
+        $('html,body').animate({
+            scrollTop: $(".results").offset().top
+        },
+            'slow');
 
     });
 
