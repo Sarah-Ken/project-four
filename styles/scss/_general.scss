@@ -54,7 +54,6 @@ header,
     text-align: center;
 }
 
-.userInputCountry,
 .userInputSegment{
     flex-direction: row;
         input{
@@ -69,6 +68,7 @@ label{
     letter-spacing: 2px;
     padding: 3%;
     position: relative;
+    margin: 0 5%;
 }
 
 button{

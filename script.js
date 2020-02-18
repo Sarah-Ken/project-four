@@ -105,7 +105,7 @@ $(document).ready(function () {
             'slow');
     });
 
-    $('.userInputCountry input').click(function () {
+    $('.userInputCountry input').submit(function () {
         $('html,body').animate({
             scrollTop: $(".userInputSegment").offset().top
         },
@@ -116,7 +116,12 @@ $(document).ready(function () {
     $('.submitBtn').on('click', function (event) {
         event.preventDefault();
         
-        userSelectedCountry = $('input[name=userInputCountry]:checked').val();
+        // userSelectedCountry = $('input[name=userInputCountry]:checked').val();
+        // userSelectedCountry = $('select').change(function(){
+        //     ('select option:selected').val();
+        // });
+
+        userSelectedCountry = $("select").val();
         userSelectedSegment = $('input[name=userInputSegment]:checked').val();
         
         if (userSelectedCountry === undefined || userSelectedSegment === undefined){
@@ -138,21 +143,21 @@ $(document).ready(function () {
             console.log(userSelectedCountry);
             console.log(userSelectedSegment);
     
-            if (userSelectedCountry === "canada") {
-                countryCode = "CA";
-            }
-            else if (userSelectedCountry === "usa") {
-                countryCode = "US";
-            }
-            else {
-                countryCode = "MX";
-            }
+            // if (userSelectedCountry === "canada") {
+            //     countryCode = "CA";
+            // }
+            // else if (userSelectedCountry === "usa") {
+            //     countryCode = "US";
+            // }
+            // else {
+            //     countryCode = "MX";
+            // }
     
-            console.log(countryCode);
+            // console.log(countryCode);
     
             // getCountryInfo(countryCode);
             // getSegmentInfo(userSelectedSegment);
-            getInfo(countryCode, userSelectedSegment);
+            getInfo(userSelectedCountry, userSelectedSegment);
     
             $('html,body').animate({
                 scrollTop: $(".results").offset().top

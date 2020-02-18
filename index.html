@@ -36,14 +36,37 @@
             <form class="userInputForm wrapper">
                 <!-- Start of first user input screen (choose country) -->
                 <section class="userInputCountry">
-                    <input type="radio" name="userInputCountry" id="inputCanada" class="input1" value="canada">
+                    <!-- <input type="radio" name="userInputCountry" id="inputCanada" class="input1" value="canada">
                     <label for="inputCanada">canada</label>
 
                     <input type="radio" name="userInputCountry" id="inputUSA" class="input1" value="usa">
                     <label for="inputUSA">usa</label>
 
                     <input type="radio" name="userInputCountry" id="inputMexico" class="input1" value="mexico">
-                    <label for="inputMexico">mexico</label>
+                    <label for="inputMexico">mexico</label> -->
+
+                    <!-- <div class="autoComplete">
+                        <label for="userInputCountry" class="sr-only">Choose your country:</label>
+                        <input type="text" name="userInputCountry" id="userInputCountry">
+                    </div> -->
+
+                    <div>
+                        <select name="userInputCountry" id="userInputCountry">
+                            <option value="hide">---Select Country---</option>
+                            <option value="CA">canada</option>
+                            <option value="US">united states of america</option>
+                            <option value="MX">mexico</option>
+                            <option value="AU">australia</option>
+                            <option value="AT">austria</option>
+                            <option value="BE">belgium</option>
+                            <option value="HR">croatia</option>
+                            <option value="DK">denmark</option>
+                            <option value="FI">finland</option>
+                            <option value="FR">france</option>
+                        </select>
+                    </div>
+
+                    <!-- <button type="submit" class="submitBtn">submit</button> -->
                 </section>
 
                 <!-- Start of second user input screen (choose attraction) -->
