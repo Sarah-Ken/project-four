@@ -59,6 +59,7 @@ header,
     flex-direction: row;
         input{
             opacity: 0;
+            position: absolute;
         }
 }
 
@@ -66,20 +67,24 @@ label{
     background: rgba(0,0,0,0.75);
     text-transform: uppercase;
     letter-spacing: 2px;
-    padding: 2%;
+    padding: 3%;
+    position: relative;
 }
 
 button{
-    padding: 2% 10%;
-    border-radius: 2px;
+    padding: 12px 7%;
+    border-radius: 10px;
     border: one;
     border: none;
     text-transform: uppercase;
     letter-spacing: 8px;
-    background: rgba(0,0,0,0.75);
+    background: rgba(0,0,0,0.5);
     color: white;
     font-size: 1.5rem;
     margin-top: 3%;    
+    font-weight: bold;
+    // position: absolute;
+    // bottom: 50px;
         // svg {
         //     height: 55px;
         //     width: 150px;

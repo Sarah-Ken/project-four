@@ -116,41 +116,49 @@ $(document).ready(function () {
     $('.submitBtn').on('click', function (event) {
         event.preventDefault();
         
+        userSelectedCountry = $('input[name=userInputCountry]:checked').val();
+        userSelectedSegment = $('input[name=userInputSegment]:checked').val();
+        
+        if (userSelectedCountry === undefined || userSelectedSegment === undefined){
+            $('.hidden').css('display','block');
+        }
 
         // Goal: obtain user input
         // (1) Store user's answer in a variable
         // (2) Obtain "checked" radio option from each question
         // Recall: radio buttons are grouped by name - select input by name
 
-        console.log('Submit button has been clicked!')
+        else{
+            $('.hidden').css('display', 'none');
 
-        userSelectedCountry = $('input[name=userInputCountry]:checked').val();
-        userSelectedSegment = $('input[name=userInputSegment]:checked').val();
-        let countryCode;
-
-        console.log(userSelectedCountry);
-        console.log(userSelectedSegment);
-
-        if (userSelectedCountry === "canada") {
-            countryCode = "CA";
+            console.log('Submit button has been clicked!')
+    
+            let countryCode;
+    
+            console.log(userSelectedCountry);
+            console.log(userSelectedSegment);
+    
+            if (userSelectedCountry === "canada") {
+                countryCode = "CA";
+            }
+            else if (userSelectedCountry === "usa") {
+                countryCode = "US";
+            }
+            else {
+                countryCode = "MX";
+            }
+    
+            console.log(countryCode);
+    
+            // getCountryInfo(countryCode);
+            // getSegmentInfo(userSelectedSegment);
+            getInfo(countryCode, userSelectedSegment);
+    
+            $('html,body').animate({
+                scrollTop: $(".results").offset().top
+            },
+                'slow');
         }
-        else if (userSelectedCountry === "usa") {
-            countryCode = "US";
-        }
-        else {
-            countryCode = "MX";
-        }
-
-        console.log(countryCode);
-
-        // getCountryInfo(countryCode);
-        // getSegmentInfo(userSelectedSegment);
-        getInfo(countryCode, userSelectedSegment);
-
-        $('html,body').animate({
-            scrollTop: $(".results").offset().top
-        },
-            'slow');
 
     });
 

@@ -3,8 +3,17 @@
     background-position: center;
     background-repeat: none;
     flex-direction: column;
+        label{
+            font-size: 100px;
+        }
 }
 
-.submitSection {
-   
+.hidden{
+    display: none;
+    border: 1px solid red;
+    padding: 1%;
+    margin-top: 2%;
+    background: rgba(255,255,255,0.75);
+    font-weight: bold;
+    color: black;
 }
