@@ -23,7 +23,7 @@ $(document).ready(function () {
 
     let userSelectedCountry;
     let userSelectedSegment;
-
+    
 
     // This function will grab info from oue API based on user input
     getInfo = function (userCountry, userSegment) {
@@ -36,33 +36,22 @@ $(document).ready(function () {
                 countryCode: `${userCountry}`,
                 size: 20,
             },
-            //FIXME: Ask if we can use success, or how to convert to .then 
-            success: function (result) {
-                console.log("Success! We have obtained information using our user's input! Our user selected " + userCountry + " as their prefered country. Our user selected " + userSegment + " as their prefered attraction type.")
-
-                console.log(result);
-
-                displayInfo(result);
-            }
-        });
+        }).then(function(result){
+            console.log(result);
+            displayInfo(result);
+        }).catch(function(error){
+            console.log('hello');
+            alert(`Sorry - no events found!`)
+        })
     }
+
+
 
     displayInfo = function (data) {
         $('.eventGrid').empty();
         $('.resultsHeader').empty();
-
+        
         const eventsArray = data._embedded.events;
-        const eventsName = eventsArray.map(createNewArray);
-
-        function createNewArray(item){
-            return item.name;
-        }
-
-        console.log(eventsArray);
-        console.log(eventsName);
-
-        const eventsNameUnique = new Set(eventsName);
-        console.log(eventsNameUnique);
 
         let userSelectedCountryText = $('select option:selected').text();
 
@@ -87,7 +76,7 @@ $(document).ready(function () {
             });
 
             const htmlToAppend = `
-           
+            
                 <div class="eventContainer">
                     <div class="imageContainer">
                         <img src ="${image}" alt="${title}">
