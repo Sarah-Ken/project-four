@@ -11,6 +11,12 @@ input[type='radio']:focus +label {
     font-weight: bold;
 }
 
+// How to add hover effect o dynamically added element?
+.buyTickets:hover,
+.buyTickets:focus{
+    background:#5d99be;
+}
+
 // button:hover {
 // 		.o1{
 // 			fill: rgba(#CC8110, 0.3);

@@ -52,13 +52,11 @@ $(document).ready(function () {
         const eventsArray = data._embedded.events;
         console.log(eventsArray);
 
-        let headerToAppend = `
-        
-           
-                <h2>Your results:</h2>
-                <p>You chose <span class="segmentSpan">${userSelectedSegment}</span> in <span class="countrySpan">${userSelectedCountry}</span></p>
-           
-        
+        let userSelectedCountryText = $('select option:selected').text();
+
+        let headerToAppend = ` 
+                <h2>your results</h2>
+                <p>You chose <span class="segmentSpan">${userSelectedSegment}</span> in <span class="countrySpan">${userSelectedCountryText}!</span></p>
         `
         $('.resultsHeader').append(headerToAppend);
 
@@ -86,9 +84,9 @@ $(document).ready(function () {
                         <h3>${title}</h3>
                         <p>${city}</p>
                         <p>${date}</p>
-                    </div>
-                    <div class="buyTickets">
-                        <a href="${buyTickets}">Buy Tickets</a>
+                        <div class="buyTickets">
+                            <a href="${buyTickets}">Buy Tickets</a>
+                        </div>
                     </div>
                 </div>
             `
