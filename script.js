@@ -49,8 +49,20 @@ $(document).ready(function () {
 
     displayInfo = function (data) {
         $('.eventGrid').empty();
+        $('.resultsHeader').empty();
+
         const eventsArray = data._embedded.events;
+        const eventsName = eventsArray.map(createNewArray);
+
+        function createNewArray(item){
+            return item.name;
+        }
+
         console.log(eventsArray);
+        console.log(eventsName);
+
+        const eventsNameUnique = new Set(eventsName);
+        console.log(eventsNameUnique);
 
         let userSelectedCountryText = $('select option:selected').text();
 
@@ -103,7 +115,7 @@ $(document).ready(function () {
             'slow');
     });
 
-    $('.userInputCountry input').submit(function () {
+    $('select').change(function () {
         $('html,body').animate({
             scrollTop: $(".userInputSegment").offset().top
         },
