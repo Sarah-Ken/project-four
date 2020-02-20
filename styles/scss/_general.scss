@@ -29,22 +29,23 @@ header,
 .userInputCountry,
 .userInputSegment {
     height: 100vh;
-    width: 100vw;
 }
 
+header,
+.userInputCountry,
+.userInputSegment, 
 .userInputSegmentFlex,
 .submitSection {
     width: 100vw;
 }
 
 header,
-.inputContainer{
+.userInputSegment{
     background: rgba(0,0,0,0.85);
     color: white;
 }
 
 header,
-.userInputForm,
 .userInputCountry,
 .userInputSegment,
 .submitSection{
@@ -55,26 +56,12 @@ header,
     text-align: center;
 }
 
-.userInputSegment{
-    flex-direction: row;
-        input{
-            opacity: 0;
-            position: absolute;
-        }
-}
 
-label{
-    background: rgba(0,0,0,0.50);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    padding: 3%;
-    position: relative;
-    margin: 0 5%;
-    border-radius: 20px;
-    transition: ease-out 0.4s;
-}
 
-button{
+
+
+.start,
+.submitBtn{
     padding: 12px 7%;
     border-radius: 10px;
     border: one;
@@ -86,30 +73,5 @@ button{
     font-size: 1.5rem;
     margin-top: 3%;    
     font-weight: bold;
-    // position: absolute;
-    // bottom: 50px;
-        // svg {
-        //     height: 55px;
-        //     width: 150px;
-        //     fill: none;
-        //     stroke-width: 5;
-
-        //     .o1 {
-        //         stroke: rgba(#FFB341, 0.7);
-        //         fill: #FFA114;
-        //         transition: all 1s ease-in-out;
-        //     }
-
-        //     .o2 {
-        //         stroke: white;
-        //         stroke-dasharray: 20 420;
-        //         stroke-dashoffset: 20;
-        //         transition: all 1s ease-in-out;
-        // }
-        // span {
-        //     position: absolute;
-        //     margin: auto 0;
-        //     text-transform: uppercase;
-        //     letter-spacing: 3px;
-	    // }
+    transition: ease-out 0.4s;
 	}

@@ -1,8 +1,6 @@
 const app = {};
 
 app.apiKey = 'qeQmGqx4AA9SDsXie418vjjZAJJuFirS';
-
-
 app.userSelectedCountry;
 app.userSelectedSegment;
 
@@ -17,11 +15,19 @@ app.getInfo = function (userCountry, userSegment) {
             size: 40,
         },
     }).then(function (result) {
-        console.log(result);
         app.displayInfo(result);
     }).catch(function (error) {
-        console.log('hello');
-        alert(`Sorry - no events found!`)
+        $('.results').css('display', 'none');
+        swal('Sorry!','No results found.', 'error');
+
+        $('html,body').animate({
+            scrollTop: $("header").offset().top
+        },
+            'slow');
+
+        $('select').prop('selectedIndex', 0);
+        $('input').prop('checked', false);
+        
     })
 }
 
@@ -73,68 +79,72 @@ app.displayInfo = function (data) {
     })
 }
 
+app.init = function(){
+    $('.start').click(function () {
+        $('html,body').animate({
+            scrollTop: $(".userInputCountry").offset().top
+        },
+            'slow');
+    });
+    
+    $('select').change(function () {
+        $('html,body').animate({
+            scrollTop: $(".userInputSegment").offset().top
+        },
+            'slow');
+    });
 
-$('.start').click(function () {
-    $('html,body').animate({
-        scrollTop: $(".userInputCountry").offset().top
-    },
-        'slow');
-});
+    $('.inputConcerts').on('click', function () {
+        $('.userInputSegment').css('background-image', 'url(./assets/concerts.jpg)');
+    })
+    $('.inputSports').on('click', function () {
+        $('.userInputSegment').css('background-image', 'url(./assets/sports.jpg)');
+    })
+    $('.inputArts').on('click', function () {
+        $('.userInputSegment').css('background-image', 'url(./assets/theatre.jpg)');
+    })
 
-$('select').change(function () {
-    $('html,body').animate({
-        scrollTop: $(".userInputSegment").offset().top
-    },
-        'slow');
-});
-
-
-$('.submitBtn').on('click', function (event) {
-    event.preventDefault();
-
-    app.userSelectedCountry = $("select").val();
-    app.userSelectedSegment = $('input[name=userInputSegment]:checked').val();
-
-    if (app.userSelectedCountry === undefined || app.userSelectedSegment === undefined) {
-        $('.hidden').css('display', 'block');
-    }
-
-    else {
-        $('.results').css('display', 'block');
-        $('.hidden').css('display', 'none');
-
-        console.log('Submit button has been clicked!')
-
-        let countryCode;
-
-        app.getInfo(app.userSelectedCountry, app.userSelectedSegment);
-
-        setTimeout(() => {
-            $('html,body').animate({
-                scrollTop: $(".results").offset().top
-            },
-                'slow');
-        }, 500);
-    }
-
-});
-
-$('.inputConcerts').on('click', function () {
-    $('.userInputSegment').css('background-image', 'url(./assets/concerts.jpg)');
-})
-$('.inputSports').on('click', function () {
-    $('.userInputSegment').css('background-image', 'url(./assets/sports.jpg)');
-})
-$('.inputArts').on('click', function () {
-    $('.userInputSegment').css('background-image', 'url(./assets/theatre.jpg)');
-})
-
-
+    $('.submitBtn').on('click', function (event) {
+        event.preventDefault();
+    
+        app.userSelectedCountry = $("select").val();
+        app.userSelectedSegment = $('input[name=userInputSegment]:checked').val();
+    
+        if (app.userSelectedCountry === undefined || app.userSelectedSegment === undefined) {
+            $('.hidden').css('display', 'block');
+        }
+        else{
+            $('.results').css('display', 'block');
+            $('.hidden').css('display', 'none');
+        
+            let countryCode;
+    
+            app.getInfo(app.userSelectedCountry, app.userSelectedSegment);
+    
+            setTimeout(() => {
+                $('html,body').animate({
+                    scrollTop: $(".results").offset().top
+                },
+                    'slow');
+            }, 1000);
+        } 
+    });
+    
+    
+    $('.refresh').click(function () {
+        $('html,body').animate({
+            scrollTop: $("header").offset().top
+        },
+            'slow');
+        
+        $('select').prop('selectedIndex', 0);
+        $('input').prop('checked',false);
+    });
+}
 
 $(document).ready(function () {
-//   TODO: ask about init and what has to be in it
-
-}); //end doc ready
+    app.init();
+}); 
 
 
 

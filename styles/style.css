@@ -210,22 +210,23 @@ header,
 .userInputCountry,
 .userInputSegment {
   height: 100vh;
-  width: 100vw;
 }
 
+header,
+.userInputCountry,
+.userInputSegment,
 .userInputSegmentFlex,
 .submitSection {
   width: 100vw;
 }
 
 header,
-.inputContainer {
+.userInputSegment {
   background: rgba(0, 0, 0, 0.85);
   color: white;
 }
 
 header,
-.userInputForm,
 .userInputCountry,
 .userInputSegment,
 .submitSection {
@@ -245,31 +246,8 @@ header,
   text-align: center;
 }
 
-.userInputSegment {
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-}
-
-.userInputSegment input {
-  opacity: 0;
-  position: absolute;
-}
-
-label {
-  background: rgba(0, 0, 0, 0.5);
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  padding: 3%;
-  position: relative;
-  margin: 0 5%;
-  border-radius: 20px;
-  -webkit-transition: ease-out 0.4s;
-  transition: ease-out 0.4s;
-}
-
-button {
+.start,
+.submitBtn {
   padding: 12px 7%;
   border-radius: 10px;
   border: one;
@@ -281,6 +259,8 @@ button {
   font-size: 1.5rem;
   margin-top: 3%;
   font-weight: bold;
+  -webkit-transition: ease-out 0.4s;
+  transition: ease-out 0.4s;
 }
 
 .start {
@@ -288,15 +268,16 @@ button {
 }
 
 h1 {
-  background-image: url(https://media.giphy.com/media/26BROrSHlmyzzHf3i/giphy.gif);
+  background-image: url(https://media.giphy.com/media/l0CRCxtNyUteI6hI4/giphy.gif);
   background-size: cover;
+  background-position: center;
   color: transparent;
   -moz-background-clip: text;
   -webkit-background-clip: text;
   text-transform: uppercase;
   font-size: 120px;
   line-height: .75;
-  margin: 10px 0;
+  margin-bottom: 5%;
 }
 
 .userInputSegment {
@@ -311,6 +292,17 @@ h1 {
 
 .userInputSegment label {
   font-size: 100px;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 3%;
+  margin: 0 5%;
+  border-radius: 20px;
+  -webkit-transition: ease-out 0.4s;
+  transition: ease-out 0.4s;
+}
+
+.userInputSegment input {
+  opacity: 0;
+  position: absolute;
 }
 
 .userInputCountry {
@@ -346,12 +338,23 @@ h1 {
   display: none;
 }
 
+.results .refresh {
+  background: none;
+  color: black;
+  font-size: 60px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  left: 2%;
+  padding: 0;
+  border: none;
+}
+
 .results .resultsHeader {
   text-align: center;
 }
 
 .results .resultsHeader h2 {
-  margin-top: 5%;
   text-transform: uppercase;
   font-size: 75px;
 }
@@ -416,21 +419,22 @@ label {
   cursor: pointer;
 }
 
-input[type='radio']:checked + label,
-input[type='radio']:focus + label {
-  background: rgba(255, 255, 255, 0.5);
-  color: black;
-  font-weight: bold;
-}
-
 input[type='radio']:hover + label,
-input[type='radio']:focus + label {
+input[type='radio']:focus + label,
+button:hover,
+button:focus,
+label:focus,
+label:hover {
   -webkit-box-shadow: inset 400px 0 0 0 rgba(255, 255, 255, 0.5);
           box-shadow: inset 400px 0 0 0 rgba(255, 255, 255, 0.5);
   color: black;
 }
 
-.buyTickets:hover,
-.buyTickets:focus {
+button:active {
+  background: white;
+}
+
+.eventContainer .eventInfoContainer .buyTickets:hover,
+.eventContainer .eventInfoContainer .buyTickets:focus {
   background: #5d99be;
 }
