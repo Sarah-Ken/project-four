@@ -96,12 +96,25 @@ app.init = function(){
 
     $('.inputConcerts').on('click', function () {
         $('.userInputSegment').css('background-image', 'url(./assets/concerts.jpg)');
+        $('.inputConcerts').css('background-color', 'rgba(255,255,255,0.3)');
+        $('.inputSports').css('background-color', 'rgba(0,0,0,0.50)');
+        $('.inputArts').css('background-color', 'rgba(0,0,0,0.50)');
     })
+
+    
     $('.inputSports').on('click', function () {
         $('.userInputSegment').css('background-image', 'url(./assets/sports.jpg)');
+        $('.inputSports').css('background-color', 'rgba(255,255,255,0.3)');
+        $('.inputConcerts').css('background-color', 'rgba(0,0,0,0.50)');
+        $('.inputArts').css('background-color', 'rgba(0,0,0,0.50)');
+       
     })
     $('.inputArts').on('click', function () {
         $('.userInputSegment').css('background-image', 'url(./assets/theatre.jpg)');
+        $('.inputArts').css('background-color', 'rgba(255,255,255,0.3)');
+        $('.inputSports').css('background-color', 'rgba(0,0,0,0.50)');
+        $('.inputConcerts').css('background-color', 'rgba(0,0,0,0.50)');
+        
     })
 
     $('.submitBtn').on('click', function (event) {
