@@ -4,6 +4,20 @@ app.apiKey = 'qeQmGqx4AA9SDsXie418vjjZAJJuFirS';
 app.userSelectedCountry;
 app.userSelectedSegment;
 
+app.refreshFunction = function(){
+    $('html,body').animate({
+        scrollTop: $("header").offset().top
+    },
+        'slow');
+
+    $('select').prop('selectedIndex', 0);
+    $('input').prop('checked', false);
+    $('.userInputSegment').css('background-image', 'none');
+    $('label').css('background', 'rgba(0,0,0,0.5')
+    $('label i').css('color', 'white')
+    $('.start').focus();
+};
+
 app.getInfo = function (userCountry, userSegment) {
     $.ajax({
         url: `https://app.ticketmaster.com/discovery/v2/events.json?&apikey=${app.apiKey}`,
@@ -19,15 +33,7 @@ app.getInfo = function (userCountry, userSegment) {
     }).catch(function (error) {
         $('.results').css('display', 'none');
         swal('Sorry!','No results found.', 'error');
-
-        $('html,body').animate({
-            scrollTop: $("header").offset().top
-        },
-            'slow');
-
-        $('select').prop('selectedIndex', 0);
-        $('input').prop('checked', false);
-        
+        app.refreshFunction();
     })
 }
 
@@ -99,14 +105,18 @@ app.init = function(){
         $('.inputConcerts').css('background-color', 'rgba(255,255,255,0.3)');
         $('.inputSports').css('background-color', 'rgba(0,0,0,0.50)');
         $('.inputArts').css('background-color', 'rgba(0,0,0,0.50)');
+        $('.inputConcerts i').css('color', 'black');
+        $('.inputSports i').css('color', 'white');
+        $('.inputArts i').css('color', 'white');
     })
-
-    
     $('.inputSports').on('click', function () {
         $('.userInputSegment').css('background-image', 'url(./assets/sports.jpg)');
         $('.inputSports').css('background-color', 'rgba(255,255,255,0.3)');
         $('.inputConcerts').css('background-color', 'rgba(0,0,0,0.50)');
         $('.inputArts').css('background-color', 'rgba(0,0,0,0.50)');
+        $('.inputSports i').css('color', 'black');
+        $('.inputConcerts i').css('color', 'white');
+        $('.inputArts i').css('color', 'white');
        
     })
     $('.inputArts').on('click', function () {
@@ -114,6 +124,9 @@ app.init = function(){
         $('.inputArts').css('background-color', 'rgba(255,255,255,0.3)');
         $('.inputSports').css('background-color', 'rgba(0,0,0,0.50)');
         $('.inputConcerts').css('background-color', 'rgba(0,0,0,0.50)');
+        $('.inputArts i').css('color', 'black');
+        $('.inputSports i').css('color', 'white');
+        $('.inputConcerts i').css('color', 'white');
         
     })
 
@@ -143,15 +156,8 @@ app.init = function(){
         } 
     });
     
-    
     $('.refresh').click(function () {
-        $('html,body').animate({
-            scrollTop: $("header").offset().top
-        },
-            'slow');
-        
-        $('select').prop('selectedIndex', 0);
-        $('input').prop('checked',false);
+        app.refreshFunction();
     });
 }
 
