@@ -1,4 +1,6 @@
 .results {
+    display: none;
+
     .resultsHeader{
         text-align: center;
         h2{
@@ -16,6 +18,8 @@
                 font-weight: bold;
             }
         }
+
+        
     }
     .eventGrid {
         display: grid;

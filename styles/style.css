@@ -264,6 +264,9 @@ label {
   padding: 3%;
   position: relative;
   margin: 0 5%;
+  border-radius: 20px;
+  -webkit-transition: ease-out 0.4s;
+  transition: ease-out 0.4s;
 }
 
 button {
@@ -282,6 +285,18 @@ button {
 
 .start {
   bottom: 50px;
+}
+
+h1 {
+  background-image: url(https://media.giphy.com/media/26BROrSHlmyzzHf3i/giphy.gif);
+  background-size: cover;
+  color: transparent;
+  -moz-background-clip: text;
+  -webkit-background-clip: text;
+  text-transform: uppercase;
+  font-size: 120px;
+  line-height: .75;
+  margin: 10px 0;
 }
 
 .userInputSegment {
@@ -325,6 +340,10 @@ button {
   background: rgba(255, 255, 255, 0.75);
   font-weight: bold;
   color: black;
+}
+
+.results {
+  display: none;
 }
 
 .results .resultsHeader {
@@ -402,6 +421,13 @@ input[type='radio']:focus + label {
   background: rgba(255, 255, 255, 0.5);
   color: black;
   font-weight: bold;
+}
+
+input[type='radio']:hover + label,
+input[type='radio']:focus + label {
+  -webkit-box-shadow: inset 400px 0 0 0 rgba(255, 255, 255, 0.5);
+          box-shadow: inset 400px 0 0 0 rgba(255, 255, 255, 0.5);
+  color: black;
 }
 
 .buyTickets:hover,
