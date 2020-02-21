@@ -56,6 +56,20 @@ header,
     text-align: center;
 }
 
+h1,
+h2{
+    background-image: url(https://media.giphy.com/media/l0CRCxtNyUteI6hI4/giphy.gif);
+    background-size: cover;
+    background-position: center;
+    color: transparent;
+    -moz-background-clip: text;
+    -webkit-background-clip: text;
+    text-transform: uppercase;
+    line-height: .75;
+    margin-bottom: 5%;
+}
+// Inspiration from: https://codepen.io/Moslim/pen/zwJPgL
+
 button{
     padding: 12px 7%;
     border-radius: 10px;
@@ -66,7 +80,7 @@ button{
     background: rgba(0,0,0,0.5);
     color: white;
     font-size: 1.5rem;
-    margin-top: 3%;    
+    margin-top: 4%;    
     font-weight: bold;
     transition: ease-out 0.4s;
 	}

@@ -15,12 +15,12 @@
             text-align: center;
             h2{
                 text-transform: uppercase;
-                font-size: 75px;
+                font-size: 8vw;
             }
             p{
-                font-size: 25px;
+                font-size: 3vw;
                 span{
-                    color: #4cace7;
+                    color: rgb(46, 170, 201);
                     text-decoration: italic;
                     text-transform: italic;
                     font-style: italic;
@@ -33,6 +33,7 @@
         .eventGrid {
             display: grid;
             grid-template-columns: 50% 50%;
+            margin-top: 3%;
         }
 }
 
@@ -66,6 +67,45 @@
                 min-width: 150px;
             }
         }
+}
+
+@media(max-width: 1050px){
+    .eventContainer{
+        grid-template-columns: 1fr;
+    }
+}
+
+@media(max-width: 800px){
+    .results{
+        .refresh{
+            font-size: 50px;
+        }
+        .eventGrid{
+            grid-template-columns: 1fr;
+        }
+    }
+    .eventContainer{
+        grid-template-columns: 33% 64%;
+    }
+}
+
+@media(max-width: 500px){
+    .results{
+        .refresh{
+            font-size: 32px;
+        }
+        .resultsHeader{
+            p{
+                font-size: 4vw;
+            }
+        }
+    }
+    .eventContainer{
+        grid-template-columns: 1fr;
+            .eventInfoContainer{
+                font-size: 4vw;
+            }
+    }
 }
 
 

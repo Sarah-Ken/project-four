@@ -1,19 +1,23 @@
 .userInputForm{
     .userInputCountry{
         background-image: url(../assets/select-background.jpg);
-        background-position: fixed;
+        background-position: center;
         background-attachment: fixed;
         background-size: cover;
         background-repeat: no-repeat;
-            select{
-                font-size: 50px;
-                padding: 3% 0 3% 5%;
-                border-radius: 10px;
-                color: white;
-                background: rgba(0,0,0,0.25);
-                border: none;
-                text-transform: uppercase;
-                letter-spacing: 5px;
+            .selectContainer{
+                width: 80%;
+                    select{
+                        font-size: 4vw;
+                        width: 100%;
+                        padding: 3% 0 3% 5%;
+                        border-radius: 10px;
+                        color: white;
+                        background: rgba(0,0,0,0.25);
+                        border: none;
+                        text-transform: uppercase;
+                        letter-spacing: 5px;
+                    }
             }
     }
     .userInputSegment{
@@ -46,6 +50,43 @@
                     color: black;
                 }
             }
+    }
+}
+
+@media(max-width: 700px){
+    .userInputForm{
+        .userInputSegment{
+            .userInputSegmentFlex{
+                label{
+                    font-size: 90px;
+                    margin: 0 2%;
+                }
+            }
+        }
+    }
+}
+
+@media(max-width: 500px){
+    .userInputForm{
+        .userInputSegment{
+            .userInputSegmentFlex{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: space-between;
+                align-items: space-between;
+                height: 60vh;
+                width: initial;
+                    label{
+                        padding: 5px 30px;
+                    }
+            }
+            .submitSection{
+                button{
+                    margin-top: 20%;
+                }
+            }
+        }
     }
 }
 

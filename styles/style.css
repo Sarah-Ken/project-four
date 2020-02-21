@@ -246,6 +246,19 @@ header,
   text-align: center;
 }
 
+h1,
+h2 {
+  background-image: url(https://media.giphy.com/media/l0CRCxtNyUteI6hI4/giphy.gif);
+  background-size: cover;
+  background-position: center;
+  color: transparent;
+  -moz-background-clip: text;
+  -webkit-background-clip: text;
+  text-transform: uppercase;
+  line-height: .75;
+  margin-bottom: 5%;
+}
+
 button {
   padding: 12px 7%;
   border-radius: 10px;
@@ -256,7 +269,7 @@ button {
   background: rgba(0, 0, 0, 0.5);
   color: white;
   font-size: 1.5rem;
-  margin-top: 3%;
+  margin-top: 4%;
   font-weight: bold;
   -webkit-transition: ease-out 0.4s;
   transition: ease-out 0.4s;
@@ -266,29 +279,29 @@ button {
   bottom: 50px;
 }
 
-h1 {
-  background-image: url(https://media.giphy.com/media/l0CRCxtNyUteI6hI4/giphy.gif);
-  background-size: cover;
-  background-position: center;
-  color: transparent;
-  -moz-background-clip: text;
-  -webkit-background-clip: text;
-  text-transform: uppercase;
-  font-size: 120px;
-  line-height: .75;
-  margin-bottom: 5%;
+header {
+  line-height: 2.2;
+}
+
+header h1 {
+  font-size: 12vw;
 }
 
 .userInputForm .userInputCountry {
   background-image: url(../assets/select-background.jpg);
-  background-position: fixed;
+  background-position: center;
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
 }
 
-.userInputForm .userInputCountry select {
-  font-size: 50px;
+.userInputForm .userInputCountry .selectContainer {
+  width: 80%;
+}
+
+.userInputForm .userInputCountry .selectContainer select {
+  font-size: 4vw;
+  width: 100%;
   padding: 3% 0 3% 5%;
   border-radius: 10px;
   color: white;
@@ -333,6 +346,40 @@ h1 {
   color: black;
 }
 
+@media (max-width: 700px) {
+  .userInputForm .userInputSegment .userInputSegmentFlex label {
+    font-size: 90px;
+    margin: 0 2%;
+  }
+}
+
+@media (max-width: 500px) {
+  .userInputForm .userInputSegment .userInputSegmentFlex {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: space-between;
+        -ms-flex-align: space-between;
+            align-items: space-between;
+    align-items: space-between;
+    height: 60vh;
+    width: initial;
+  }
+  .userInputForm .userInputSegment .userInputSegmentFlex label {
+    padding: 5px 30px;
+  }
+  .userInputForm .userInputSegment .submitSection button {
+    margin-top: 20%;
+  }
+}
+
 .results {
   display: none;
   padding-bottom: 5%;
@@ -356,15 +403,15 @@ h1 {
 
 .results .resultsHeader h2 {
   text-transform: uppercase;
-  font-size: 75px;
+  font-size: 8vw;
 }
 
 .results .resultsHeader p {
-  font-size: 25px;
+  font-size: 3vw;
 }
 
 .results .resultsHeader p span {
-  color: #4cace7;
+  color: #2eaac9;
   -webkit-text-decoration: italic;
           text-decoration: italic;
   text-transform: italic;
@@ -377,6 +424,7 @@ h1 {
   display: grid;
   -ms-grid-columns: 50% 50%;
       grid-template-columns: 50% 50%;
+  margin-top: 3%;
 }
 
 .eventContainer {
@@ -415,6 +463,43 @@ h1 {
   min-width: 150px;
 }
 
+@media (max-width: 1050px) {
+  .eventContainer {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 800px) {
+  .results .refresh {
+    font-size: 50px;
+  }
+  .results .eventGrid {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+  .eventContainer {
+    -ms-grid-columns: 33% 64%;
+        grid-template-columns: 33% 64%;
+  }
+}
+
+@media (max-width: 500px) {
+  .results .refresh {
+    font-size: 32px;
+  }
+  .results .resultsHeader p {
+    font-size: 4vw;
+  }
+  .eventContainer {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+  .eventContainer .eventInfoContainer {
+    font-size: 4vw;
+  }
+}
+
 footer {
   background-color: rgba(0, 0, 0, 0.85);
   border-top: 3px solid black;
@@ -428,6 +513,12 @@ footer p {
 
 footer span {
   color: white;
+}
+
+@media (max-width: 500px) {
+  footer {
+    font-size: 13px;
+  }
 }
 
 button,
@@ -462,5 +553,5 @@ button:active {
 
 .eventContainer .eventInfoContainer .buyTickets:hover,
 .eventContainer .eventInfoContainer .buyTickets:focus {
-  background: lightblue;
+  background: rgba(0, 0, 0, 0.7);
 }
