@@ -441,10 +441,6 @@ header h1 {
   padding-left: 10px;
 }
 
-.eventContainer .eventInfoContainer h3 {
-  line-height: 1;
-}
-
 .eventContainer .eventInfoContainer .buyTickets {
   background: #2eaac9;
   text-align: center;
@@ -473,6 +469,10 @@ header h1 {
 @media (max-width: 800px) {
   .results .refresh {
     font-size: 50px;
+  }
+  .results .resultsHeader h2 {
+    font-size: 9.5vw;
+    margin-top: 3%;
   }
   .results .eventGrid {
     -ms-grid-columns: 1fr;
@@ -554,4 +554,8 @@ button:active {
 .eventContainer .eventInfoContainer .buyTickets:hover,
 .eventContainer .eventInfoContainer .buyTickets:focus {
   background: rgba(0, 0, 0, 0.7);
+}
+
+.eventContainer .eventInfoContainer .buyTickets a:focus {
+  color: black;
 }

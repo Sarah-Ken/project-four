@@ -33,6 +33,14 @@ button:active{
         .buyTickets:focus{
             background: rgba(0,0,0,0.7);
         }
+        .buyTickets{
+            a:focus{
+                color: black;
+            }
+        }
     }
 }
+
+
+
 

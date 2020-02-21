@@ -45,9 +45,6 @@
     grid-gap: 20px;
         .eventInfoContainer {
             padding-left: 10px;
-            h3 {
-                line-height: 1;
-            }
                 .buyTickets{
                     background: rgb(46, 170, 201);
                     text-align: center;
@@ -79,6 +76,12 @@
     .results{
         .refresh{
             font-size: 50px;
+        }
+        .resultsHeader{
+            h2{
+                font-size: 9.5vw;
+                margin-top: 3%;
+            }
         }
         .eventGrid{
             grid-template-columns: 1fr;
