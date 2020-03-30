@@ -142,9 +142,7 @@ app.init = function(){
         else{
             $('.results').css('display', 'block');
             $('.hidden').css('display', 'none');
-        
-            let countryCode;
-    
+            
             app.getInfo(app.userSelectedCountry, app.userSelectedSegment);
     
             setTimeout(() => {
